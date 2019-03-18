@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="kr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <link href="css/main.css" rel="stylesheet">
+    <title>Flight</title>
+</head>
+<body>
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center">
+    <div id="map" class="position-fixed fixed-top"></div>
+    <header class="masthead mb-auto">
+        <div class="inner">
+            <h3 class="masthead-brand">Flight</h3>
+            <nav class="nav nav-masthead justify-content-center">
+                <a class="nav-link active" href="javascript:void(0);">Home</a>
+                <a class="nav-link" href="javascript:void(0);" data-toggle="modal" data-target="#postModal">New Post</a>
+                <a class="nav-link" href="javascript:void(0);" data-toggle="modal" data-target="#signupModal">Sign up</a>
+                <a class="nav-link" href="javascript:void(0);" data-toggle="modal" data-target="#signinModal">Sign in</a>
+                <a class="nav-link" href="javascript:void(0);" id="signOutButton">Sign out</a>
+            </nav>
+        </div>
+    </header>
+    <footer class="mastfoot mt-auto ">
+        <div class="inner">
+            <p><a href="https://github.com/korsejong">Github</a>, by <a href="https://github.com/korsejong">korsejong</a>.</p>
+        </div>
+    </footer>
+</div>
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModal" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-secondary">Sign up</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="signUpForm">
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="signUpEmail" required placeholder="Your email *">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="signUpPassword" required placeholder="Password *">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="signUpConfirmPassword" required oninput="validatePassword(this)" placeholder="Confirm password *" >
+                    </div>
+                    <div class="form-group text-right">
+                        <input type="submit" class="btn btn-primary" value="Register">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="signinModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-secondary">Sign in</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="signInForm">
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="signInEmail" placeholder="Your email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="signInPassword" placeholder="Password">
+                    </div>
+                    <div class="form-group text-right">
+                        <input type="submit" class="btn btn-primary" value="Sign-in">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-secondary">New Post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="mt-2 mb-2">
+                    <img class="ticket-img" id="ticketImage" src="./public/airline_ticket.png" alt="ticket" />
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="ticketImageFile" accept=".png, .jpg, .jpeg" onchange="readURL(this);" required>
+                    <label class="custom-file-label" for="ticketImageFile">Choose file...</label>
+                </div>
+                <div class="form-group mt-2">
+                    <textarea class="form-control textarea-fixedsize"></textarea>
+                </div>
+                <div class="form-group text-right">
+                    <button class="btn btn-primary" id="newPostButton">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="lib/jquery/dist/jquery.min.js"></script>
+<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="javascript/main.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=[GOOGLE_MAP_API_KEY]&callback=initMap">
+</script>
+</body>
+</html>
+
+
