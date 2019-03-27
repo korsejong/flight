@@ -20,4 +20,4 @@
     throw new Error('Bootstrap\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0');
   }
 })($);
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=index.js.googlemap

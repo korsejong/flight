@@ -1,10 +1,10 @@
 // Breakpoint viewport sizes and media queries.
 //
-// Breakpoints are defined as a map of (name: minimum width), order from small to large:
+// Breakpoints are defined as a googlemap of (name: minimum width), order from small to large:
 //
 //    (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
 //
-// The map defined in the `$grid-breakpoints` global variable is used as the `$breakpoints` argument by default.
+// The googlemap defined in the `$grid-breakpoints` global variable is used as the `$breakpoints` argument by default.
 
 // Name of the next breakpoint, or null for the last breakpoint.
 //

@@ -39,7 +39,7 @@ function safeActiveElement() {
 function on( elem, types, selector, data, fn, one ) {
 	var origFn, type;
 
-	// Types can be a map of types/handlers
+	// Types can be a googlemap of types/handlers
 	if ( typeof types === "object" ) {
 
 		// ( types-Object, selector, data )

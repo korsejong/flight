@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html lang="kr" xmlns:th="http://www.thymeleaf.org">
+<html lang="kr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="public/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
     <link href="css/main.css" rel="stylesheet">
     <title>Flight</title>
 </head>
-<body>
+<body class="img-background">
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center">
-    <div id="map" class="position-fixed fixed-top"></div>
     <header class="masthead mb-auto">
         <div class="inner">
-            <h3 class="masthead-brand">Flight</h3>
+            <h3 class="masthead-brand text-dark">Flight</h3>
             <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link active" href="javascript:void(0);">Home</a>
-                <a class="nav-link" href="javascript:void(0);" data-toggle="modal" data-target="#postModal">New Post</a>
-                <a class="nav-link" href="javascript:void(0);" data-toggle="modal" data-target="#signupModal">Sign up</a>
-                <a class="nav-link" href="javascript:void(0);" data-toggle="modal" data-target="#signinModal">Sign in</a>
-                <a class="nav-link" href="javascript:void(0);" id="signOutButton">Sign out</a>
+                <a class="nav-link active " href="javascript:void(0);">Home</a>
+                <a class="nav-link text-dark" href="javascript:void(0);" data-toggle="modal" data-target="#signUpModal">Sign up</a>
+                <a class="nav-link text-dark" href="javascript:void(0);" data-toggle="modal" data-target="#signInModal">Sign in</a>
             </nav>
         </div>
     </header>
@@ -29,7 +27,7 @@
         </div>
     </footer>
 </div>
-<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModal" aria-hidden="true">
+<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModal" aria-hidden="true">
     <div class="modal-dialog " role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -57,7 +55,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="signinModal" aria-hidden="true">
+<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -67,12 +65,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="signInForm">
+                <form id="signInForm" action="/user/signIn" method="post">
                     <div class="form-group">
-                        <input type="email" class="form-control" id="signInEmail" placeholder="Your email">
+                        <input type="email" class="form-control" name="username" id="signInEmail" placeholder="Your email">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="signInPassword" placeholder="Password">
+                        <input type="password" class="form-control" name="password" id="signInPassword" placeholder="Password">
                     </div>
                     <div class="form-group text-right">
                         <input type="submit" class="btn btn-primary" value="Sign-in">
@@ -82,39 +80,9 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModal" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-secondary">New Post</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="mt-2 mb-2">
-                    <img class="ticket-img" id="ticketImage" src="./public/airline_ticket.png" alt="ticket" />
-                </div>
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="ticketImageFile" accept=".png, .jpg, .jpeg" onchange="readURL(this);" required>
-                    <label class="custom-file-label" for="ticketImageFile">Choose file...</label>
-                </div>
-                <div class="form-group mt-2">
-                    <textarea class="form-control textarea-fixedsize"></textarea>
-                </div>
-                <div class="form-group text-right">
-                    <button class="btn btn-primary" id="newPostButton">Upload</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <script src="lib/jquery/dist/jquery.min.js"></script>
 <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="javascript/main.js"></script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=[GOOGLE_MAP_API_KEY]&callback=initMap">
-</script>
+<script src="javascript/indexEvent.js"></script>
 </body>
 </html>
 

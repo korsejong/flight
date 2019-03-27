@@ -19,13 +19,9 @@ public class Journal {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Column
-    private String fromLat;
+    private String lat;
     @Column
-    private String fromLng;
-    @Column
-    private String toLat;
-    @Column
-    private String toLng;
+    private String lng;
     @Column
     private String text;
     @Column
@@ -39,17 +35,13 @@ public class Journal {
     private Timestamp updatedAt;
 
     public Journal() {}
-    public Journal(String fromLat, String fromLng, String toLat, String toLng){
-        this.fromLat = fromLat;
-        this.fromLng = fromLng;
-        this.toLat = toLat;
-        this.toLng = toLng;
+    public Journal(String lat, String lng){
+        this.lat = lat;
+        this.lng = lng;
     }
-    public Journal(Member member, String fromLat, String fromLng, String toLat, String toLng){
+    public Journal(Member member, String lat, String lng){
         this.member = member;
-        this.fromLat = fromLat;
-        this.fromLng = fromLng;
-        this.toLat = toLat;
-        this.toLng = toLng;
+        this.lat = lat;
+        this.lng = lng;
     }
 }

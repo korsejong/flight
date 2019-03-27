@@ -425,4 +425,4 @@
   return Collapse;
 
 }));
-//# sourceMappingURL=collapse.js.map
+//# sourceMappingURL=collapse.js.googlemap
