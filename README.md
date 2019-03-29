@@ -1,5 +1,8 @@
 # Flight
 `Flight는 자신의 여행일지를 남길 수 있는 웹 서비스 프로젝트입니다.`
+
+## Preview
+![demo](https://github.com/korsejong/flight/blob/master/preview.gif)
 ## Google Cloud
 ```
 Google Map, Geocoder
