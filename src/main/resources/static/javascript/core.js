@@ -107,14 +107,26 @@ const loadJSON = (callback) => {
     };
     xobj.send(null);
 };
-//Validate
-const validatePassword = (input) => {
-    if(input.value !== $('#signUpPassword').val()){
-        input.setCustomValidity("Please enter the same password again.");
-    }else{
-        input.setCustomValidity("");
-    }
+const loadPaths = () => {
+    $.ajax({
+        url: "/user/paths/all",
+        type: 'get',
+        success: (Paths) => {
+            for(let p of Paths){
+                addPathInGoogleMap(new Path({
+                    fromCoordinate:
+                        {lat: parseFloat(p.fromLat), lng: parseFloat(p.fromLng)},
+                    toCoordinate:
+                        {lat: parseFloat(p.toLat), lng: parseFloat(p.toLng)}
+                }));
+            }
+        },
+        error: (err) => {
+            console.log(err);
+        }
+    });
 };
+//initMap
 function initMap() {
     let mapCenterLocation = new GoogleMapCoordinate(37.642445, 127.07222);
     map = new google.maps.Map(
@@ -124,10 +136,5 @@ function initMap() {
             center: mapCenterLocation
         });
     geocoder = new google.maps.Geocoder();
+    loadPaths();
 }
-
-$(document).ready(() => {
-    loadJSON((response) => {
-        airports = JSON.parse(response);
-    });
-});

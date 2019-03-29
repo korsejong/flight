@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -44,7 +45,11 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public List<Path> getAllPaths(Member member) {
-        return member.getPaths();
+        List<Path> justPathInfoList = new ArrayList<>();
+        for(Path p: member.getPaths()){
+            justPathInfoList.add(new Path(p.getFromLat(),p.getFromLng(),p.getToLat(),p.getToLng()));
+        }
+        return justPathInfoList;
     }
 
     @Override

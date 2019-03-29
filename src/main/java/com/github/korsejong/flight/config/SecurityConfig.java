@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
             .formLogin()
                 .loginProcessingUrl("/user/signIn")
-                .defaultSuccessUrl("/journal")
+                .defaultSuccessUrl("/mymap")
                 .and()
             .logout()
                 .logoutUrl("/user/signOut")

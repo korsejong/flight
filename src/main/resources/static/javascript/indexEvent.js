@@ -27,3 +27,13 @@ const signUp = () => {
     return false;
 };
 $('#signUpForm').submit(signUp);
+
+
+//Validate
+const validatePassword = (input) => {
+    if(input.value !== $('#signUpPassword').val()){
+        input.setCustomValidity("Please enter the same password again.");
+    }else{
+        input.setCustomValidity("");
+    }
+};

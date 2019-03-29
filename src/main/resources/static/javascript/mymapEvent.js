@@ -41,8 +41,12 @@ const newPost = async () => {
     }
     ticketImage = null;
     return false;
-
 };
 //Events
 $('#signOutButton').click(signOut);
 $('#newPostButton').click(newPost);
+$(document).ready(() => {
+    loadJSON((response) => {
+        airports = JSON.parse(response);
+    });
+});
